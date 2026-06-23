@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK体育 · 运动场景指南</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #f2f3f5;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e1e1e;
+            line-height: 1.6;
+            padding: 0 1.2rem 2.5rem;
+        }
+
+        .wrapper {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        /* HERO — 杂志首页横幅 */
+        .hero {
+            background: #e8ecf0;
+            background-image: linear-gradient(145deg, #eef1f5 0%, #dce1e7 100%);
+            margin: 1.5rem 0 2rem;
+            padding: 3rem 2.5rem;
+            border-radius: 28px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04), 0 1px 4px rgba(0,0,0,0.02);
+            border: 1px solid rgba(255,255,255,0.6);
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #3a4a5c;
+            max-width: 70%;
+            font-weight: 380;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            margin-top: 1.2rem;
+            background: #2d3b4b;
+            color: #eef3f7;
+            padding: 0.25rem 1.1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+            border: 1px solid #4a5e70;
+        }
+
+        /* 背景说明卡片 — 杂志专题式 */
+        .context-box {
+            background: #ffffffd9;
+            backdrop-filter: blur(2px);
+            padding: 2rem 2.2rem;
+            border-radius: 24px;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.02);
+            border: 1px solid #e2e6eb;
+        }
+
+        .context-box h2 {
+            font-weight: 440;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #1f2a36;
+            border-left: 4px solid #a3b6c9;
+            padding-left: 0.9rem;
+        }
+
+        .context-box p {
+            color: #2f3f4f;
+            margin: 0.8rem 0 0.2rem;
+        }
+
+        /* 三段自然介绍 — 卡片网格 */
+        .insight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.6rem;
+            margin-bottom: 2.4rem;
+        }
+
+        .insight-card {
+            background: #ffffff;
+            padding: 1.6rem 1.4rem 1.8rem;
+            border-radius: 24px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.02), 0 0 0 1px #e6eaef;
+            transition: box-shadow 0.2s;
+        }
+
+        .insight-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04), 0 0 0 1px #ccd4dd;
+        }
+
+        .insight-card h3 {
+            font-weight: 480;
+            font-size: 1.35rem;
+            margin-bottom: 0.65rem;
+            color: #1b2a39;
+            letter-spacing: -0.01em;
+        }
+
+        .insight-card p {
+            color: #34495e;
+            font-size: 0.98rem;
+        }
+
+        .insight-card .icon-emoji {
+            font-size: 1.8rem;
+            display: inline-block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* FAQ摘要 简洁条目 */
+        .faq-mini {
+            background: #ffffffd9;
+            backdrop-filter: blur(2px);
+            padding: 1.8rem 2rem;
+            border-radius: 24px;
+            margin-bottom: 2rem;
+            border: 1px solid #e2e6eb;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .faq-mini h2 {
+            font-weight: 440;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: #1f2a36;
+            border-left: 4px solid #a3b6c9;
+            padding-left: 0.9rem;
+        }
+
+        .faq-item {
+            padding: 0.6rem 0 0.4rem 0;
+            border-bottom: 1px solid #e9edf2;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1e2c3c;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-item span {
+            color: #3f5568;
+            font-size: 0.96rem;
+        }
+
+        /* 页尾访问提示 — 杂志脚注 */
+        .site-footer {
+            background: #eaeef3;
+            border-radius: 30px;
+            padding: 1.8rem 2.2rem;
+            margin-top: 1.5rem;
+            border: 1px solid #d7dee6;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .site-footer p {
+            color: #2b3d4e;
+            font-size: 1rem;
+            max-width: 70%;
+        }
+
+        .site-footer a {
+            color: #1f3b54;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #798fa3;
+            padding-bottom: 2px;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .site-footer a:hover {
+            color: #0f283b;
+            border-bottom: 1px solid #0f283b;
+        }
+
+        .footnote {
+            font-size: 0.85rem;
+            color: #5a6f82;
+            margin-top: 0.5rem;
+            width: 100%;
+            text-align: right;
+        }
+
+        /* 响应式 */
+        @media (max-width: 800px) {
+            .hero { padding: 2.2rem 1.8rem; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { max-width: 100%; }
+            .insight-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+            .site-footer p { max-width: 100%; }
+        }
+
+        @media (max-width: 500px) {
+            body { padding: 0 0.8rem 2rem; }
+            .hero { padding: 1.8rem 1.2rem; border-radius: 20px; }
+            .hero h1 { font-size: 1.7rem; }
+            .context-box, .faq-mini { padding: 1.5rem; }
+            .site-footer { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <!-- 首页横幅 HERO -->
+    <section class="hero">
+        <h1>MK体育 · 运动生活指引</h1>
+        <p>一个为日常运动爱好者整理的场景化信息站，帮助你在不同项目前快速判断场地、装备与氛围。</p>
+        <span class="badge">⚡ 专题 · 实用视角</span>
+    </section>
+
+    <!-- 背景说明 -->
+    <div class="context-box">
+        <h2>为什么需要这个页面</h2>
+        <p>很多人打开一个体育类网站时，其实只是想弄明白「这里到底适合谁、能做什么」。与其堆叠信息，不如把用途摊开。MK体育 的内容方向围绕真实运动场景展开，不贩卖焦虑，不编造数据，只把场地类型、参与方式、常见规则讲清楚——像一个认真写运动笔记的朋友。</p>
+    </div>
+
+    <!-- 三段自然介绍 -->
+    <div class="insight-grid">
+        <div class="insight-card">
+            <span class="icon-emoji">🏸</span>
+            <h3>球类 · 匹配节奏</h3>
+            <p>羽毛球、乒乓球、网球等场地信息整理，包含室内外区别、灯光标准、地面材质差异。你可以快速了解一场业余对抗需要预约什么类型场地，以及常见费用区间。</p>
+        </div>
+        <div class="insight-card">
+            <span class="icon-emoji">🏃</span>
+            <h3>跑步与户外</h3>
+            <p>从跑道到公园绿道，不同路面特性、安全建议、基础训练计划参考。不堆配速表，只帮你识别什么环境更适合你的日常跑量。</p>
+        </div>
+        <div class="insight-card">
+            <span class="icon-emoji">🤸</span>
+            <h3>团体课程&健身房</h3>
+            <p>团课类型、器械分区、高峰时段概述。适合第一次走进健身房或想尝试新课程的人，了解基本规则与礼仪。所有描述都基于常见运营模式。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h2>常见疑问 · 快速浏览</h2>
+        <div class="faq-item">
+            <strong>网站内容会频繁更新吗？</strong>
+            <span>信息根据季节与常见项目调整，保持基础参考价值，不追求实时比分或直播。</span>
+        </div>
+        <div class="faq-item">
+            <strong>需要注册才能浏览吗？</strong>
+            <span>不需要。所有介绍页面开放阅读，部分互动功能可能要求简单注册，但阅读主体无限制。</span>
+        </div>
+        <div class="faq-item">
+            <strong>能不能直接找到某个场馆的预约链接？</strong>
+            <span>平台更侧重概念与分类说明，不直接提供第三方预约跳转。你可以通过描述判断后再自行搜索场馆。</span>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <footer class="site-footer">
+        <p>
+            如果你希望从实际运动需求出发，快速了解不同项目的场地与氛围，可以进入
+            <a href="https://vip-site-mksports.com">MK体育</a>
+            浏览专题内容。所有描述来自常见运动场景，不构成专业指导。
+        </p>
+        <div class="footnote">· 专题风格 · 自然视角</div>
+    </footer>
+
+</div>
+</body>
+</html>
